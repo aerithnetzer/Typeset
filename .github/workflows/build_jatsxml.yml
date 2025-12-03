@@ -7,5 +7,5 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - run: ls
-      - run: chmod +x bin/to_jatsxml.sh
-      - run: ./bin/to_jatsxml.sh
+      - run: chmod +x build/to_jatsxml.sh
+      - run: ./build/to_jatsxml.sh
