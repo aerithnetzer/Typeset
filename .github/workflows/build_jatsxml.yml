@@ -19,7 +19,7 @@ jobs:
 
       - name: Commit and Push Changes
         run: |
-          git add VERSION
-          git commit -m "Update VERSION file"
+          git add .
+          git commit -m "Chore: Build JATSXML files"
           git push
 
