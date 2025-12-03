@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Build JATSXML
+      - name: Build Typst and PDF
         run: |
           sudo apt install pandoc
           chmod +x ./build/to_typst_pdf.sh
@@ -22,6 +22,6 @@ jobs:
       - name: Commit and Push Changes
         run: |
           git add .
-          git commit -m "Chore: Build JATSXML files"
-          git push
+          git commit -m "Chore: Build Typst/PDF files"
+          git push origin prod
 
