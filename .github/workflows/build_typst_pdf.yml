@@ -1,5 +1,5 @@
-name: Build JATSXML
-run-name: Build JATSXML data
+name: Build Typst/PDF
+run-name: Build Typst/PDF data
 on: [push]
 permissions:
   contents: write
