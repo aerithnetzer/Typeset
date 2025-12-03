@@ -9,7 +9,7 @@ while [ "${#paths_to_check[@]}" -gt 0 ]; do
     if [ -d "$entry" ]; then
       paths_to_check+=("$entry")
     elif [ -f "$entry" ] && [ "$(basename "$entry")" = "article.md" ]; then
-      pandoc "$entry" -f typst --standalone -o "${entry%.*}.typ"
+      pandoc -i "$entry" -o "${entry%.*}.typ"
     fi
   done
 done
