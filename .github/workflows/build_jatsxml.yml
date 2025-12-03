@@ -2,9 +2,12 @@ name: Build JATSXML
 run-name: Build JATSXML data
 on: [push]
 jobs:
-  check-bats-version:
+  build-jatsxml-publishing:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - run: chmod +x build/to_jatsxml.sh
-      - run: ./build/to_jatsxml.sh
+      - uses: actions/checkout@v4
+      - name: Build JATSXML
+        run: |
+          sudo apt-get pandoc
+          ./build/to_jatsxml.sh
+
