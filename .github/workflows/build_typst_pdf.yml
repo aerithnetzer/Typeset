@@ -25,5 +25,4 @@ build-typst_pdf:
       run: |
         git add .
         git commit -m "Chore: Build Typst/PDF files"
-        git push origin prod
-
+        git push

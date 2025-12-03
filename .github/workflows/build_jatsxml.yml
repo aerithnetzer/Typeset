@@ -23,15 +23,8 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "github-actions@github.com"
       
-      - name: Stash built files
-        run: |
-          git add .
-          git stash push -m "Built JATSXML files"
-      
       - name: Checkout prod and apply changes
         run: |
-          git checkout prod
-          git stash pop
           git add .
           git commit -m "Chore: Build JATSXML files" || echo "No changes to commit"
-          git push origin prod
+          git push
