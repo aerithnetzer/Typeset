@@ -12,3 +12,14 @@ jobs:
           chmod +x ./build/to_jatsxml.sh
           ./build/to_jatsxml.sh
 
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "github-actions@github.com"
+
+      - name: Commit and Push Changes
+        run: |
+          git add VERSION
+          git commit -m "Update VERSION file"
+          git push
+
