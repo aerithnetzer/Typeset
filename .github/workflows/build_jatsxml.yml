@@ -9,5 +9,6 @@ jobs:
       - name: Build JATSXML
         run: |
           sudo apt-get pandoc
+          chmod +x ./build/to_jatsxml.sh
           ./build/to_jatsxml.sh
 
