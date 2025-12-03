@@ -1,0 +1,10 @@
+name: Build JATSXML
+run-name: Build JATSXML data
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - run: chmod +x bin/to_jatsxml.sh
+      - run: ./bin/to_jatsxml.sh

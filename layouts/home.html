@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html>
+<header class="index-header">Wildcat Journal</header>
+{{ range .Sections.ByWeight }}
+<h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+{{ end }}
+
+</html>
