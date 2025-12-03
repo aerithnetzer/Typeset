@@ -1,6 +1,8 @@
 name: Build JATSXML
 run-name: Build JATSXML data
 on: [push]
+permissions:
+  contents: write
 jobs:
   build-jatsxml-publishing:
     runs-on: ubuntu-latest
