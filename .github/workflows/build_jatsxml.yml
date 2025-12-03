@@ -8,19 +8,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0  # Fetch all branches
+      
       - name: Build JATSXML
         run: |
           sudo apt install pandoc
           chmod +x ./build/to_jatsxml.sh
           ./build/to_jatsxml.sh
-
+      
       - name: Configure Git
         run: |
           git config user.name "GitHub Actions"
           git config user.email "github-actions@github.com"
-
-      - name: Commit and Push Changes
+      
+      - name: Checkout prod and commit changes
         run: |
+          git checkout prod
+          git checkout main -- .  # Copy built files from main
           git add .
-          git commit -m "Chore: Build JATSXML files"
+          git commit -m "Chore: Build JATSXML files" || echo "No changes to commit"
           git push origin prod

@@ -3,25 +3,27 @@ run-name: Build Typst/PDF data
 on: [push]
 permissions:
   contents: write
-jobs:
-  build-typst_pdf:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Build Typst and PDF
-        run: |
-          sudo apt install pandoc
-          chmod +x ./build/to_typst_pdf.sh
-          ./build/to_typst_pdf.sh
+build-typst_pdf:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v4
+      with:
+        ref: main
+        fetch-depth: 0
+    - name: Build Typst and PDF
+      run: |
+        sudo apt install pandoc
+        chmod +x ./build/to_typst_pdf.sh
+        ./build/to_typst_pdf.sh
 
-      - name: Configure Git
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "github-actions@github.com"
+    - name: Configure Git
+      run: |
+        git config user.name "GitHub Actions"
+        git config user.email "github-actions@github.com"
 
-      - name: Commit and Push Changes
-        run: |
-          git add .
-          git commit -m "Chore: Build Typst/PDF files"
-          git push origin prod
+    - name: Commit and Push Changes
+      run: |
+        git add .
+        git commit -m "Chore: Build Typst/PDF files"
+        git push origin prod
 
