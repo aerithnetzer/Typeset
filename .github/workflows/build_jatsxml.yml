@@ -6,6 +6,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - run: ls
       - run: chmod +x build/to_jatsxml.sh
       - run: ./build/to_jatsxml.sh
