@@ -1,0 +1,27 @@
+name: Build JATSXML
+run-name: Build JATSXML data
+on: [push]
+permissions:
+  contents: write
+jobs:
+  build-jatsxml-publishing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build JATSXML
+        run: |
+          sudo apt install pandoc
+          chmod +x ./build/to_typst_pdf.sh
+          ./build/to_typst_pdf.sh
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "github-actions@github.com"
+
+      - name: Commit and Push Changes
+        run: |
+          git add .
+          git commit -m "Chore: Build JATSXML files"
+          git push
+
